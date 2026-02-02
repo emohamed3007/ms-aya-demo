@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>إدارة الصفوف الدراسية</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background:#f9f9f9;
+      margin:0;
+      padding:20px;
+    }
+    h1 {
+      text-align:center;
+      color:#2c3e50;
+      margin-bottom:20px;
+    }
+    .back-btn {
+      display:inline-block;
+      margin:10px 0;
+      padding:10px 18px;
+      background:#3498db;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .back-btn:hover { background:#2980b9; }
+
+    .add-btn {
+      display:inline-block;
+      margin-bottom:20px;
+      padding:10px 20px;
+      background:#8e44ad;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .add-btn:hover { background:#6c3483; }
+
+    .cards {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:15px;
+    }
+    .card {
+      background:#fff;
+      border:1px solid #ddd;
+      padding:20px;
+      border-radius:8px;
+      text-align:center;
+      cursor:pointer;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+      font-size:18px;
+    }
+    .card:hover { background:#f0f0f0; transform: scale(1.03); }
+
+    table {
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      margin-top:15px;
+      font-size:16px;
+    }
+    th, td {
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:center;
+    }
+    th { background:#3498db; color:white; }
+    tr:nth-child(even){ background:#f2f2f2; }
+
+    
+    .button {
+      background: #8e44ad;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin: 2px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      color:white;
+      text-decoration:none;
+    }
+    .button:hover { background: #6c3483; }
+  </style>
+</head>
+<body>
+  <a href="../teacher-index.html" class="back-btn">⬅ رجوع للصفحة الرئيسية</a>
+  <h1>إدارة الصفوف الدراسية</h1>
+
+  <!-- زر إضافة صف جديد -->
+  <button class="add-btn" onclick="addClass()">➕ إضافة صف دراسي جديد</button>
+
+  <!-- كروت الصفوف -->
+  <div class="cards" id="classes">
+    <div class="card" onclick="showGroups('الصف الأول الثانوي')">الصف الأول الثانوي</div>
+    <div class="card" onclick="showGroups('الصف الثاني الثانوي')">الصف الثاني الثانوي</div>
+    <div class="card" onclick="showGroups('الصف الثالث الثانوي')">الصف الثالث الثانوي</div>
+  </div>
+
+  <!-- جدول المجموعات داخل الصف -->
+  <div class="groups" id="groups" style="display:none;">
+    <button class="back-btn" onclick="backToClasses()">⬅ رجوع للصفوف</button>
+    <h2 id="classTitle"></h2>
+    <button class="add-btn" onclick="addGroup()">➕ إضافة مجموعة دراسية</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>اسم المجموعة</th>
+          <th>اليوم الأسبوعي</th>
+          <th>ساعة البداية</th>
+          <th>ساعة النهاية</th>
+        </tr>
+      </thead>
+      <tbody id="groupsTable">
+        <!-- المجموعات تظهر هنا -->
+      </tbody>
+    </table>
+
+    <h2 id="videosTitle"></h2>
+    <button class="add-btn" onclick="addVideo()">➕ إضافة فيديو</button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>عنوان الفيديو</th>
+          <th>حاله ظهوره</th>
+        </tr>
+      </thead>
+      <tbody id="videosTable">
+        <!-- المجموعات تظهر هنا -->
+      </tbody>
+    </table>
+  </div>
+
+  
+  <footer>
+  © 2026 Ms. Aya App — جميع الحقوق محفوظة
+  </footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #8e44ad;
+  }
+</style>
+
+
+  <script>
+    function addClass(){
+      alert("فتح نموذج إضافة صف دراسي جديد ✍️");
+    }
+
+    function showGroups(className){
+      document.getElementById('classes').style.display = 'none';
+      document.getElementById('groups').style.display = 'block';
+      document.getElementById('classTitle').textContent = "المجموعات داخل " + className;
+      document.getElementById('videosTitle').textContent = "فيديوهات  " + className;
+
+      // مثال بيانات المجموعات
+      const groups = [
+        {name:"مجموعة أ", day:"الأحد", start:"10:00 ص", end:"12:00 م"},
+        {name:"مجموعة ب", day:"الثلاثاء", start:"1:00 م", end:"3:00 م"},
+        {name:"مجموعة ج", day:"الخميس", start:"9:00 ص", end:"11:00 ص"}
+      ];
+
+      const videos = [
+        {name:"شرح الوحده الاولي", status: "فعال" },
+        {name:"شرح الوحده الثانيه", status: "غير فعال" },
+        {name:"شرح الوحده الثالثه", status: "غير فعال" },
+      ];
+
+      const table = document.getElementById('groupsTable');
+      table.innerHTML = "";
+      groups.forEach(g => {
+        const row = `<tr><td>${g.name}</td><td>${g.day}</td><td>${g.start}</td><td>${g.end}</td></tr>`;
+        table.innerHTML += row;
+      });
+    
+    
+      const videosTable = document.getElementById('videosTable');
+      videosTable.innerHTML = "";
+      videos.forEach(g => {
+        const row = `<tr><td>${g.name}</td><td>${g.status}</td></tr>`;
+        videosTable.innerHTML += row;
+      });
+    }
+
+    function backToClasses(){
+      document.getElementById('groups').style.display = 'none';
+      document.getElementById('classes').style.display = 'grid';
+    }
+
+    function addGroup(){
+      alert("فتح نموذج إضافة مجموعة دراسية جديدة ✍️");
+    }
+    
+    function addVideo(){
+      alert("فتح نموذج إضافة ملف فيديو جديد ✍️");
+    }
+  </script>
+</body>
+</html>

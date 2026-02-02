@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>إدارة الطلبة</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background:#f9f9f9;
+      margin:0;
+      padding:20px;
+    }
+    h1 {
+      text-align:center;
+      color:#2c3e50;
+      margin-bottom:20px;
+    }
+    .back-btn {
+      display:inline-block;
+      margin:10px 0;
+      padding:10px 18px;
+      background:#3498db;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .back-btn:hover { background:#2980b9; }
+
+    /* الكروت */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .card {
+      text-align: center;
+      padding: 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      background:#fff;
+      border:1px solid #ddd;
+      padding:20px;
+      border-radius:8px;
+      text-align:center;
+      cursor:pointer;
+      box-shadow:0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+    .card:hover { background:#f0f0f0; transform: scale(1.03); }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      body { font-size: 18px; }
+      .card { font-size: 16px; padding:15px; }
+      .cards { grid-template-columns: 1fr 1fr; } /* صفين على التابلت */
+    }
+    @media (max-width: 480px) {
+      .cards { grid-template-columns: 1fr; } /* كارت واحد في الصف على الموبايل */
+      .card { font-size: 16px; padding:15px; }
+    }
+
+    .groups, .students { margin-top:20px; }
+    table {
+      width:100%;
+      border-collapse:collapse;
+      background:white;
+      margin-top:15px;
+      font-size:16px;
+    }
+    th, td {
+      border:1px solid #ddd;
+      padding:12px;
+      text-align:center;
+    }
+    th { background:#3498db; color:white; }
+    tr:nth-child(even){ background:#f2f2f2; }
+
+    
+    
+    .add-btn {
+      display:inline-block;
+      margin-bottom:20px;
+      padding:10px 20px;
+      background:#8e44ad;
+      color:white;
+      text-decoration:none;
+      border-radius:6px;
+      font-weight:bold;
+      cursor:pointer;
+    }
+    .add-btn:hover { background:#6c3483; }
+  </style>
+</head>
+<body>
+  <a href="../teacher-index.html" class="back-btn">⬅ رجوع للصفحة الرئيسية</a>
+  <h1>إدارة الطلبة</h1>
+
+  <!-- كروت الصفوف -->
+  <div class="cards" id="classes">
+    <div class="card" onclick="showGroups('الصف الأول الثانوي')">الصف الأول الثانوي</div>
+    <div class="card" onclick="showGroups('الصف الثاني الثانوي')">الصف الثاني الثانوي</div>
+    <div class="card" onclick="showGroups('الصف الثالث الثانوي')">الصف الثالث الثانوي</div>
+  </div>
+
+  <!-- المجموعات -->
+  <div class="groups" id="groups" style="display:none;">
+    <button class="back-btn" onclick="backToClasses()">⬅ رجوع للصفوف</button>
+    <button class="add-btn" onclick="addGroup()">➕ إضافة مجموعه</button>
+    <h2 id="classTitle"></h2>
+    <div class="cards">
+      <div class="card" onclick="showStudents('مجموعة أ')">مجموعة أ</div>
+      <div class="card" onclick="showStudents('مجموعة ب')">مجموعة ب</div>
+    </div>
+  </div>
+
+  <!-- جدول الطلبة -->
+  <div class="students" id="students" style="display:none;">
+    <button class="back-btn" onclick="backToGroups()">⬅ رجوع للمجموعات</button>
+    <button class="add-btn" onclick="addStudent()">➕ إضافة طالب</button>
+
+    <h2 id="groupTitle"></h2>
+    <table>
+      <thead>
+        <tr>
+          <th>الرقم</th>
+          <th>اسم الطالب</th>
+          <th>مصروفات</th>
+          <th>الحالة</th>
+        </tr>
+      </thead>
+      <tbody id="studentsTable"></tbody>
+    </table>
+  </div>
+
+  
+  <footer>
+  © 2026 Ms. Aya App — جميع الحقوق محفوظة
+  </footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #8e44ad;
+  }
+</style>
+
+
+  <script>
+    function showGroups(className){
+      document.getElementById('classes').style.display = 'none';
+      document.getElementById('groups').style.display = 'block';
+      document.getElementById('classTitle').textContent = "المجموعات داخل " + className;
+      document.getElementById('students').style.display = 'none';
+    }
+    function backToClasses(){
+      document.getElementById('groups').style.display = 'none';
+      document.getElementById('classes').style.display = 'grid';
+    }
+    function showStudents(groupName){
+      document.getElementById('groups').style.display = 'none';
+      document.getElementById('students').style.display = 'block';
+      document.getElementById('groupTitle').textContent = "الطلبة في " + groupName;
+      const students = [
+        {name:"أحمد محمد", id:"101", status:"نشط", payment: 1500 },
+        {name:"سارة علي", id:"102", status:"نشط", payment: 1500},
+        {name:"محمود حسن", id:"103", status:"موقوف", payment: 1500},
+        {name:"منى خالد", id:"104", status:"نشط", payment: 1500}
+      ];
+      const table = document.getElementById('studentsTable');
+      table.innerHTML = "";
+      students.forEach(st => {
+        const row = `<tr><td>${st.id}</td><td>${st.name}</td><td>${st.payment}</td><td>${st.status}</td></tr>`;
+        table.innerHTML += row;
+      });
+    }
+    function backToGroups(){
+      document.getElementById('students').style.display = 'none';
+      document.getElementById('groups').style.display = 'block';
+    }
+
+    function addStudent(){
+        alert("Add student");
+    }
+
+    function addGroup(){
+        alert("Add group")
+    }
+  </script>
+</body>
+</html>

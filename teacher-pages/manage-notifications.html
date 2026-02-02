@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>إدارة الإشعارات</title>
+  <style>
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-size: 16px; /* حجم أساسي أوضح */
+}
+
+h1, h2 {
+  font-size: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  font-size: 16px; /* حجم أوضح للجدول */
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+/* تحسين العرض على الموبايل */
+@media (max-width: 600px) {
+  body {
+    font-size: 18px; /* تكبير الخط الأساسي */
+  }
+  h1, h2 {
+    font-size: 22px;
+  }
+  table {
+    font-size: 18px; /* تكبير خط الجدول */
+  }
+  th, td {
+    padding: 10px;
+  }
+  .notification {
+    font-size: 18px; /* تكبير خط الإشعارات */
+  }
+  .add-btn, .back-btn {
+    font-size: 18px;
+    padding: 12px 20px;
+  }
+}
+
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 20px;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .back-btn:hover { background: #2980b9; }
+
+    .add-btn {
+      display: inline-block;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      background: #8e44ad;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .add-btn:hover { background: #6c3483; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #3498db;
+      color: white;
+    }
+    tr:nth-child(even) { background: #f2f2f2; }
+
+    .visible { color: green; font-weight: bold; }
+    .hidden { color: red; font-weight: bold; }
+
+   
+  </style>
+</head>
+<body>
+  <!-- زر الرجوع -->
+  <a href="../teacher-index.html" class="back-btn">⬅ رجوع للصفحة الرئيسية</a>
+
+  <h1>إدارة الإشعارات</h1>
+
+  <!-- زر إضافة إشعار جديد -->
+  <button class="add-btn" onclick="addNotification()">➕ إضافة إشعار جديد</button>
+
+  <!-- جدول الإشعارات -->
+  <table>
+    <thead>
+      <tr>
+        <th>الرسالة</th>
+        <th>النوع</th>
+        <th>السنة الدراسية</th>
+        <th>حالة الظهور</th>
+      </tr>
+    </thead>
+    <tbody id="notificationsTable">
+      <tr>
+        <td>برجاء تجهيز مصروفات الشهر الحالي</td>
+        <td>تنبيه</td>
+        <td>الصف الأول الثانوي</td>
+        <td class="visible">ظاهر ✅</td>
+      </tr>
+      <tr>
+        <td>امتحان الرياضيات يوم الأحد القادم</td>
+        <td>معلومة</td>
+        <td>الصف الثاني الثانوي</td>
+        <td class="visible">ظاهر ✅</td>
+      </tr>
+      <tr>
+        <td>آخر موعد لتسليم الواجبات يوم الخميس</td>
+        <td>تنبيه</td>
+        <td>الصف الثالث الثانوي</td>
+        <td class="hidden">مخفي ❌</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <footer>
+  © 2026 Ms. Aya App — جميع الحقوق محفوظة
+  </footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #8e44ad;
+  }
+</style>
+
+  <script>
+    function addNotification(){
+      alert("فتح نموذج إضافة إشعار جديد ✍️");
+      // هنا ممكن نعمل نافذة منبثقة أو صفحة جديدة لإضافة إشعار
+    }
+  </script>
+</body>
+</html>
