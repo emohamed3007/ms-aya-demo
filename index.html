@@ -64,11 +64,35 @@
       background: #e74c3c; /* red */
     }
 
+        /* إشعارات */
+    .notifications {
+      margin-top: 10px;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 800px;
+    }
+    .notifications h2 {
+      margin-top: 0;
+      color: #8e44ad;
+      text-align: center;
+    }
+    .notification {
+      background: #f2f2f2;
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .alert { border-right: 5px solid #e74c3c; }
+    .info { border-right: 5px solid #3498db; }
+
   </style>
 </head>
 <body>
   <div class="main">
-    <div class="welcome">Welcome in ms/Aya APP</div>
+    <div class="welcome">أهلا بك في تطبيق Ms. Aya</div>
     <div class="grid">
       <!-- Payment status example
       <div class="button paid">دفع ✅</div>
@@ -110,13 +134,23 @@
         </a>
       </div>
 
-      <div class="button span-2">
+      <!--<div class="button span-2">
         <a href="pages/messages.html" style="color:white; text-decoration:none; display:block;">
           رسائل
         </a>
-      </div>
+      </div>-->
 
     </div>
+
+    <!-- قسم الإشعارات -->
+    <div class="notifications">
+      <h2>إشعارات هامه من المدرس</h2>
+      <div class="notification alert">📢 برجاء تجهيز مصروفات الشهر الحالي</div>
+      <div class="notification info">ℹ️ سيتم عقد امتحان الرياضيات يوم الأحد القادم</div>
+      <div class="notification info">ℹ️ رفع فيديو جديد لشرح درس الرياضيات</div>
+      <div class="notification alert">📢 آخر موعد لتسليم الواجبات يوم الخميس</div>
+    </div>
+
   </div>
 
 
