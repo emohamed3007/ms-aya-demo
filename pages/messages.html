@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>المحادثة مع ms Aya</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+
+    .chat-box {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      height: 70vh;
+      overflow-y: auto;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .message {
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 8px;
+      max-width: 80%;
+      word-wrap: break-word;
+    }
+
+    .student {
+      background: #3498db;
+      color: white;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .aya {
+      background: #2ecc71;
+      color: white;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    .input-area {
+      max-width: 600px;
+      margin: 20px auto;
+      display: flex;
+      gap: 10px;
+    }
+
+    input {
+      flex: 1;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #3498db;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #2980b9;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .back-btn:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <!-- زر الرجوع -->
+  <a href="../index.html" class="back-btn">⬅ رجوع للصفحة الرئيسية</a>
+  <h1>المحادثة مع ms Aya</h1>
+  <div class="chat-box" id="chatBox">
+    <div class="message aya">مرحبًا، أنا ms Aya. كيف يمكنني مساعدتك اليوم؟</div>
+  </div>
+
+  <div class="input-area">
+    <input type="text" id="studentMessage" placeholder="اكتب رسالتك هنا...">
+    <button onclick="sendMessage()">إرسال</button>
+  </div>
+
+  <script>
+    function sendMessage(){
+      const input = document.getElementById('studentMessage');
+      const text = input.value.trim();
+      if(text){
+        const chatBox = document.getElementById('chatBox');
+
+        // رسالة الطالب
+        const studentMsg = document.createElement('div');
+        studentMsg.className = 'message student';
+        studentMsg.textContent = text;
+        chatBox.appendChild(studentMsg);
+
+        // رد ms Aya (تجريبي)
+        const ayaMsg = document.createElement('div');
+        ayaMsg.className = 'message aya';
+        ayaMsg.textContent = "شكرًا على رسالتك، سأراجعها وأرد عليك قريبًا.";
+        chatBox.appendChild(ayaMsg);
+
+        input.value = "";
+        chatBox.scrollTop = chatBox.scrollHeight; // scroll to bottom
+      }
+    }
+  </script>
+
+  
+
+  <footer>
+  © 2026 Ms. Aya App — جميع الحقوق محفوظة
+  </footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #8e44ad;
+  }
+</style>
+
+</body>
+</html>

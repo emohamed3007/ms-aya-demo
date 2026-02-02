@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>نتيجة الامتحان</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+    .question { background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+    .correct { color: green; font-weight: bold; }
+    .wrong { color: red; font-weight: bold; }
+    .answer { margin-top: 10px; }
+    .score { text-align: center; font-size: 20px; margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>امتحان الرياضيات - نتيجة الطالب</h1>
+
+  <!-- سؤال اختيار من متعدد -->
+  <div class="question">
+    <strong>س1: ما ناتج 5 × 6 ؟</strong>
+    <div class="answer">إجابة الطالب: 25 <span class="wrong">❌</span></div>
+    <div class="answer">الإجابة الصحيحة: 30 ✅</div>
+  </div>
+
+  <!-- سؤال صح وخطأ -->
+  <div class="question">
+    <strong>س2: العدد 10 هو عدد أولي.</strong>
+    <div class="answer">إجابة الطالب: خطأ <span class="correct">✅</span></div>
+  </div>
+
+  <!-- سؤال مقالي -->
+  <div class="question">
+    <strong>س3: حل المعادلة: 2x + 5 = 15</strong>
+    <div class="answer">إجابة الطالب: x = 4 <span class="correct">✅</span></div>
+    <div class="answer">الإجابة النموذجية: طرح 5 → 2x = 10 → x = 5 ❌</div>
+  </div>
+
+  <div class="score">الدرجة النهائية: 2 / 3</div>
+
+
+  <footer>
+  © 2026 Ms. Aya App — جميع الحقوق محفوظة
+  </footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #8e44ad;
+  }
+</style>
+
+</body>
+</html>

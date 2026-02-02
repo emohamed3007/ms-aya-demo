@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>واجبات الطلاب</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    th { background: #8e44ad; color: white; }
+    tr:nth-child(even) { background: #f2f2f2; }
+    .done { color: green; font-weight: bold; }
+    .pending { color: orange; font-weight: bold; }
+    .missing { color: red; font-weight: bold; }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 15px;
+      padding: 8px 16px;
+      background: #3498db;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .back-btn:hover {
+      background: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <!-- زر الرجوع -->
+  <a href="../index.html" class="back-btn">⬅ رجوع للصفحة الرئيسية</a>
+  <h1>واجبات الطالب - الفصل 2025-2026</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>اسم الواجب</th>
+        <th>تاريخ التسليم</th>
+        <th>الحالة</th>
+        <th>النتيجة</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>واجب حصه 1</td>
+        <td>10 فبراير</td>
+        <td class="pending">قيد المراجعة</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td><a href="homework-result.html">واجب حصه 2</a></td>
+        <td>15 فبراير</td>
+        <td>90%</td>
+      </tr>
+      <tr>
+        <td><a href="homework-details.html">واجب حصه 3</a></td>
+        <td>20 فبراير</td>
+        <td class="missing">لم يسلم</td>
+        <td>0%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+
+  <footer>
+  © 2026 Ms. Aya App — جميع الحقوق محفوظة
+  </footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-top: 3px solid #8e44ad;
+  }
+</style>
+
+</body>
+</html>
