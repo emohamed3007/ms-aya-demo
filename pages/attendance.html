@@ -1,54 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>حضور الطالب</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>شاشة الحضور</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-      margin-bottom: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 12px;
-      text-align: center;
-    }
-
-    th {
-      background: #3498db;
-      color: white;
-    }
-
-    tr:nth-child(even) {
-      background: #f2f2f2;
-    }
-
-    .present {
-      color: green;
-      font-weight: bold;
-    }
-
-    .absent {
-      color: red;
-      font-weight: bold;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: #f9f9f9; padding: 20px; }
+    h1 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+    h2 { color: #8e44ad; margin-top: 30px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 30px; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }
+    th { background: #3498db; color: white; }
+    tr:nth-child(even) { background: #f2f2f2; }
+    .present { color: green; font-weight: bold; }
+    .absent { color: red; font-weight: bold; }
+    
     .back-btn {
       display: inline-block;
       margin-bottom: 15px;
@@ -67,35 +33,69 @@
 <body>
   <!-- زر الرجوع -->
   <a href="../index.html" class="back-btn">⬅ رجوع للصفحة الرئيسية</a>
-  <h1>حضور الطالب - الفصل 2025-2026</h1>
+
+  <h1>سجل الحضور</h1>
+
+  <!-- جدول شهر يناير -->
+  <h2>يناير</h2>
   <table>
     <thead>
       <tr>
-        <th>الشهر</th>
-        <th>عدد الحصص</th>
-        <th>الحضور</th>
-        <th>الغياب</th>
+        <th>الحصة</th>
+        <th>الحالة</th>
       </tr>
     </thead>
     <tbody>
+      <tr><td>الحصة 1</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 2</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 3</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 4</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 5</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 6</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 7</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 8</td><td class="absent">غياب ❌</td></tr>
+    </tbody>
+  </table>
+
+  <!-- جدول شهر فبراير -->
+  <h2>فبراير</h2>
+  <table>
+    <thead>
       <tr>
-        <td>فبراير</td>
-        <td>12</td>
-        <td class="present">1</td>
-        <td class="absent">1</td>
+        <th>الحصة</th>
+        <th>الحالة</th>
       </tr>
+    </thead>
+    <tbody>
+      <tr><td>الحصة 1</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 2</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 3</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 4</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 5</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 6</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 7</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 8</td><td class="present">حضور ✅</td></tr>
+    </tbody>
+  </table>
+
+  <!-- جدول شهر مارس -->
+  <h2>مارس</h2>
+  <table>
+    <thead>
       <tr>
-        <td>مارس</td>
-        <td>14</td>
-        <td class="present">-</td>
-        <td class="absent">-</td>
+        <th>الحصة</th>
+        <th>الحالة</th>
       </tr>
-      <tr>
-        <td>أبريل</td>
-        <td>10</td>
-        <td class="present">-</td>
-        <td class="absent">-</td>
-      </tr>
+    </thead>
+    <tbody>
+      <tr><td>الحصة 1</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 2</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 3</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 4</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 5</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 6</td><td class="present">حضور ✅</td></tr>
+      <tr><td>الحصة 7</td><td class="absent">غياب ❌</td></tr>
+      <tr><td>الحصة 8</td><td class="present">حضور ✅</td></tr>
     </tbody>
   </table>
 
